@@ -6,3 +6,5 @@ local keymap = vim.keymap
 
 keymap.set("n", ">", ":>")
 keymap.set("n", "<", ":<")
+
+keymap.set("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
