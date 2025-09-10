@@ -8,3 +8,14 @@ keymap.set("n", ">", ":>")
 keymap.set("n", "<", ":<")
 
 keymap.set("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-t>", function()
+  require("snacks").terminal.toggle()
+end, { desc = "Terminal (toggle)" })
+
+vim.keymap.set({ "x" }, "<C-_>", function()
+  local mode = vim.fn.visualmode()
+  local from = vim.fn.line("v")
+  local to = vim.fn.line(".")
+  require("mini.comment").toggle_lines(from, to)
+end, { desc = "Comment selection (any visual mode)" })
